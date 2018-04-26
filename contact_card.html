@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('button').click(function(){
+                var firstname = $('#firstinput').val();
+                var lastname = $('#lastinput').val();
+                var desc = $('#descinput').val();
+                $('#rightcontent').append("<div id='card'><p id='front'>" + firstname + " " + lastname + "<p>Click here for more info</p></p><p id='back'>" + desc + "</p></div></div>");
+                $('#front').show();
+                $('#back').hide();
+                $("#firstinput").val("");
+				$("#lastinput").val("");
+				$("#descinput").val("");
+                return false;
+            })
+            return false;
+        })
+        $(document).on('click','#card',function(){
+            $(this).children().toggle();
+        })
+    </script>
+    <style type="text/css">
+        #card{
+            height: 100px;
+            width: 250px;
+            border: 3px solid blue;
+            padding: 5px;
+            vertical-align: top;
+        }
+        p{
+            text-align: center;
+        }
+        #front{
+            text-align: center;
+        }
+        #back{
+            text-align: center;
+        }
+        #leftcontent, #rightcontent{
+            display: inline-block;
+            width:300px;
+        }
+        #firstlabel, #lastlabel, #firstinput, #lastinput{
+            display: inline-block
+        }
+        #lastlabel,#lastinput{
+            margin-top: 20px;
+        }
+        #lastinput, #firstinput{
+            margin-left: 10px;
+        }
+        #desclabel, #descinput{
+            display: block;
+            margin-top:20px;
+        }
+        #rightcontent{
+            display: inline-block;
+        }
+        #desclabel{
+            margin-top:40px;
+        }
+        button{
+            margin-top: 20px;
+        }
+        #descinput{
+            width: 250px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="leftcontent">
+            <form method="post">
+                <label for="firstname" id="firstlabel">First Name: </label>
+                <input type="text" name="firstinput" id="firstinput">
+                <label for="lastname" id="lastlabel">Last Name: </label>
+                <input type="text" name="lastinput" id="lastinput">
+                <label for="description" id="desclabel">Description: </label>
+                <input type="text" name="descinput" id="descinput">
+                <button id="adduser">Add User</button>
+            </form>
+        </div>
+        <div id="rightcontent">
+
+        </div>
+    </div>
+</body>
+</html>
